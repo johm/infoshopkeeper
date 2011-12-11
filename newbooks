@@ -1,0 +1,36 @@
+#!/usr/bin/python
+
+from string import rjust,ljust
+import sys
+
+from objects.title import Title
+from objects.book import Book
+from objects.author import Author
+from objects.category import Category
+from objects.kind import Kind
+
+import components.db
+conn=components.db.connect()
+
+cursor=conn.cursor()
+
+def textList(listtext, sep1=', ', sep2=', and '):
+    if len(listtext)==2:
+        return " and ".join(listtext)
+    else:
+        return sep1.join(listtext[:-2]+['']) + sep2.join(listtext[-2:])
+
+
+cursor.execute('SELECT title_id,id FROM book order by id desc limit 300');
+
+rows=cursor.fetchall()
+for r in rows:
+    b=Book.get(r[1])
+    t=Title.get(r[0])
+    print "*%s* by %s [$%s]" % (t.booktitle,textList([a.author_name for a in t.author]),b.listprice)
+
+
+
+
+
+

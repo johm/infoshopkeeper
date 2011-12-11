@@ -1,0 +1,17 @@
+[global]
+server.socketPort=8080
+server.socketHost="127.0.0.1"
+server.threadPool=10
+server.logToScreen=True
+server.environment="production"
+staticFilter.root = "/root/infoshopkeeper/inventoryserver"
+sessionFilter.on= True
+
+
+[/javascript]
+staticFilter.on = True
+staticFilter.dir = "javascript"
+
+[/style]
+staticFilter.on = True
+staticFilter.dir = "style"

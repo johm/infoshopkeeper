@@ -1,0 +1,13 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Editing a category of ${category.title.booktitle}
+#end def
+
+#def body
+<h1>Category record for $category.title.booktitle</h1>
+<form method="get" action="/categoryedit">
+$category.object_to_form
+</form>
+#end def

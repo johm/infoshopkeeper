@@ -1,0 +1,55 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Editing ${title.booktitle}
+#end def
+
+#def body
+<h1>Edit a Title</h1>
+
+<form method="get" action="/titleedit">
+$title.object_to_form
+</form>
+<h2>Author(s):</h2>
+#for $a in $title.author
+<div><span>$a.author_name</span><a class="listinglink" href="/authoredit?id=$a.id">edit</a></div>
+#end for
+
+
+<h2>Copies</h2>
+<form action="/addtocart">
+#for $b in $title.books
+<div class="listinggroup">
+<table>
+<tr>
+<td>
+<a class="listinglink" href="/bookedit?id=$b.id">edit</a>
+</td>
+<td>
+<b>copy from $b.distributor ($b.notes) owned by $b.owner <br />inventoried on $b.inventoried_when at \$$b.listprice<br /> with status $b.status
+#if $b.status=="SOLD"
+($b.sold_when)
+#end if
+<br /></b>
+</td>
+<td>
+add this copy to cart: <input type="checkbox" name="copy_id" value="$b.id" />
+[add <input style="width:80px;"type="text" length="3" name="select_x_like_$b.id" value="" /> copies like this to cart]
+</td>
+</tr>
+</table>
+</div>
+#end for
+<input class="submit" type="submit" name="addtocart" value="Collect selected copies" /> <br /> <!--<br />
+<input class="submit" type="submit" name="delete" onclick="return confirm('Are you sure?');" value="Delete selected copies" />-->
+</form>
+
+<h2>Categories:</h2>
+#for $c in $title.categorys
+<div class="listing"><span class="listing">$c.categoryName</span><a class="listinglink" href="/categoryedit?id=$c.id">edit</a></div>
+#end for
+
+
+
+#end def

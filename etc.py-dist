@@ -1,0 +1,208 @@
+dbtype="mysql"
+dbname=""
+dbhost=""
+dbuser=""
+dbpass=""
+
+sections=["Fiction","Science Fiction","Literary Criticism","Poetry","Art","Comics","Zines","Children's","Young Adult","Biography","Science","Sports","Film","Theater","Latin America","Native American","Anti- and post-colonial","African American","1960's social movements","GLBTQ","Anthropology/Sociology","Critiquing whiteness","Feminism","Latin@s","Asia","Africa","Middle East","Organizing and Activism","Education and parenting","Environmentalism","Media","Digital Media","US Domestic Politics","US Foreign Policy","Prisons and Policing","Surrealism","Philosophy","Cultural Theory","Marxism","Political Economy","Anarchism","Labor History","History","Revolutionary History","IWW","DIY","Music","Palestine and Israel","Autonomist Marxism","Urbanism","Pirates and Nautical History","Dada","Situationist","Religion"]
+
+taxrate=0.06
+econoscan=True
+amazon_license_key=""
+cherrypy_config_file="/home/infoshopkeeper/infoshopkeeper/cherrypy.conf"
+
+open_cash_drawer="/home/infoshopkeeper/infoshopkeeper/openup.sh"
+
+# In case you generate sale report as pdf
+pdf_opening_program = "/usr/bin/evince"
+
+# Still in case you generate sale report as PDF
+# This will be part of the header. 
+infoshopname="Red Emma's Bookstore Coffeehouse"
+infoshopaddress="800 St. Paul St. Baltimore MD 21202"
+
+
+# Full Name, Short Label, Price
+simple_items= (
+
+# Basic Drinks
+    ("In House Coffee","In House Coffee",1.65,{"color":"#663300","page":"Basic Drinks"}),
+    ("Refill","Refill", 0.71,{"color":"#663300","page":"Basic Drinks"}),
+    ("Small Coffee","Sm Coffee",1.415,{"color":"#663300","page":"Basic Drinks"}),
+    ("Medium Coffee","Me Coffee",1.75,{"color":"#663300","page":"Basic Drinks"}),
+    ("Large Coffee","Lg Coffee",2.12,{"color":"#663300","page":"Basic Drinks"}),
+    ("Medium Iced Coffee","Me Iced Coffee",1.87,{"color":"#663300","page":"Basic Drinks"}),
+    ("Large Iced Coffee","Lg Iced Coffee",2.12,{"color":"#663300","page":"Basic Drinks"}),
+    ("Hot Tea","Hot Tea",1.65,{"color":"#ff4400","page":"Basic Drinks"}),
+    ("Medium Ice Tea","Ice Tea(Med.)",1.75,{"color":"#4455CC","page":"Basic Drinks"}),
+      ("Large Ice Tea","Ice Tea(Lg.)",2.12,{"color":"#4455CC","page":"Basic Drinks"}),
+      ("Extra Tea Bag","Extra Tea Bag",0.71,{"color":"#335500","page":"Basic Drinks"}),
+    ("Yerba Mate","Yerba Mate", 2.83,{"color":"#335500","page":"Basic Drinks"}),
+
+
+# Steamed Drinks
+    ("Hot Chocolate","Hot Choc",1.89,{"color":"#ff3333","page":"Steamed"}),
+    ("Single Espresso","Single Espresso",1.65,{"color":"#663300","page":"Steamed"}),
+    ("Small Latte","Sm. Latte",2.74,{"color":"#ff9966","page":"Steamed"}),
+     ("Medium Latte","Med. Latte",3.21,{"color":"#CC6633","page":"Steamed"}),
+     ("Large Latte","Lg. Latte",3.68,{"color":"#993300","page":"Steamed"}),
+    ("Single Macch.","Single Macchiato",1.87,{"color":"#ff00cc","page":"Steamed"}),
+    ("Double Espresso","Double Espresso",2.12,{"color":"#663300","page":"Steamed"}),
+    ("Small Capp.","Sm. Cappucino",2.74,{"color":"#ff9966","page":"Steamed"}),
+     ("Medium Capp.","Med. Cappucino",3.21,{"color":"#cc6633","page":"Steamed"}),
+     ("Large Capp.","Lg. Cappucino",3.68,{"color":"#993300","page":"Steamed"}),
+    ("Double Macch.","Double Macchiato",2.59,{"color":"#ff00cc","page":"Steamed"}),
+    ("Extra Esp. Shot","Extra Espresso Shot",0.94,{"color":"#663300","page":"Steamed"}),
+    ("Small Mocha","Sm. Mocha",2.97,{"color":"#6666CC","page":"Steamed"}),
+     ("Medium Mocha","Med. Mocha",3.44,{"color":"#333366","page":"Steamed"}),
+     ("Large Mocha","Lg. Mocha",3.92,{"color":"#000033","page":"Steamed"}),
+
+
+# Food
+    ("bagel", "bagel", .94,{"color":"#990099","page":"Food"}),
+     ("Day Old Bagel","Day Old Bagel", 0.47,{"color":"#990099","page":"Food"}),
+     ("Cream Cheese" , "2x Cream Cheese", .94,{"color":"#cc0000","page":"Food"}),
+     ("Cream Cheese" , "1x Cream Cheese", .47,{"color":"#cc0000","page":"Food"}),
+     ("Butter","Butter", .47,{"color":"#cc0000","page":"Food"}),
+    ("Tofutti" , "Tofutti", .94,{"color":"#cc0000","page":"Food"}),
+     ("Hummus" , "Hummus", .94,{"color":"#cc0000","page":"Food"}),
+     ("Dollar Spread" , "Dollar Spread", .94,{"color":"#cc0000","page":"Food"}),
+     ("Little Extra" , "A little extra", .47,{"color":"#cc0000","page":"Food"}),
+     ("Hummus Platter","Hummus Platter",4.72,{"color":"#990099","page":"Food"}),
+    ("Cream Cheese and Veggie","CC+Veggie", 3.77,{"color":"#996633","page":"Food"}),
+     ("Hummus and Veggie","Hummus+Veggie", 3.77,{"color":"#996633","page":"Food"}),
+     ("Malapesto", "Malapesto", 4.72,{"color":"#996633","page":"Food"}),
+     ("Atzlan", "Atzlan", 4.72,{"color":"#996633","page":"Food"}),
+     ("SeasonalSoup","SeasonalSoup",2.83,{"color":"#ff3300","page":"Food"}),
+    ("Half Banh Mi Chay", "Half Ban Mi", 3.77,{"color":"#663300","page":"Food"}),
+     ("Half Malapesto","Half Malapesto", 3.77,{"color":"#663300","page":"Food"}),
+     ("Half Greek Veggie","Half Greek", 3.77,{"color":"#663300","page":"Food"}),
+     ("Half Tofurky Melt","Half Tofurky", 3.30,{"color":"#663300","page":"Food"}),
+     ("Miso Soup","Miso Soup", 1.89,{"color":"#ff3300","page":"Food"}),
+    ("Whole Banh Mi Chay", "Whole Ban Mi", 6.60,{"color":"#663300","page":"Food"}),
+     ("Whole Malapesto","Whole Malapesto", 6.60,{"color":"#663300","page":"Food"}),
+     ("Whole Greek Veggie","Whole Greek", 6.60,{"color":"#663300","page":"Food"}),
+     ("Whole Tofurky Melt","Whole Tofurky", 4.72,{"color":"#663300","page":"Food"}),
+     ("Miso Works","Miso Works", 3.30,{"color":"#ff3300","page":"Food"}),
+    ("Spinach Salad","Spinach Salad", 2.83,{"color":"#006633","page":"Food"}),
+     ("Black Bean Salad","Black Bean", 3.30,{"color":"#006633","page":"Food"}),
+     ("Granola","Granola", 1.89,{"color":"#996633","page":"Food"}),
+     ("Milk/Bowl","Milk/Bowl", .71,{"color":"#996633","page":"Food"}),
+     ("Yogurt","Yogurt", 1.42,{"color":"#996633","page":"Food"}),
+    ("Black Bean Bomb","BB Bomb", 4.72,{"color":"#996633","page":"Food"}),
+
+
+# Bakery  
+    ("A La Mode","A La Mode",1.42,{"color":"#3333ff","page":"Bakery"}), 
+    ("Dirty Carrot Cookie","Cookie-DrtyCrt",1.88,{"color":"#ff6600","page":"Bakery"}),             
+    ("Dirty Carrot Scone","Scone-DrtyCrt",1.88,{"color":"#ff6600","page":"Bakery"}),   
+    ("Dirty Carrot Brownie","Brownie-DrtyCrt",2.83,{"color":"#ff6600","page":"Bakery"}),   
+
+
+# Addons
+    ("Add Chips", "Add Chips", .94,{"color":"#3333ff","page":"Addons"}),
+    ("Add Greens", "Add Greens", 1.42,{"color":"#3333ff","page":"Addons"}),
+    ("Add Soup", "Add Soup", 1.42,{"color":"#3333ff","page":"Addons"}),
+
+# Packaged
+    ("Just Coffee bag","Just Coffee Bag",14.15,{"color":"#663300","page":"Packaged"}),
+     ("Retail Mate","Retail Mate", 10.00,{"color":"#226644","page":"Packaged"}),
+    ("LaraBar","LaraBar", 1.89,{"color":"#ff3333","page":"Packaged"}),
+    ("Primal Strips","Primal Strips", 1.89,{"color":"#ff3333","page":"Packaged"}),
+    ("TerraChips","TerraChips",1.42,{"color":"#ff3333","page":"Packaged"}),
+    ("PretzelBunnies","PretzelBunnies",3.76,{"color":"#ff3333","page":"Packaged"}),
+    ("ChocEspressoBeans","ChocEspressoBeans", 2.83,{"color":"#ff3333","page":"Packaged","taxable":True}),
+
+
+
+# Stuff 
+   ("CC Surcharge","CC surcharge", 0.24,{"color":"#663300","page":"Stuff"}),
+   ("REBumperSticker","REBumperSticker", 1.89,{"color":"#226644","page":"Stuff"}),
+   ("RE Tote bag","RE Tote Bag", 8.00,{"color":"#226644","page":"Stuff"}),      
+   ("Greeting Card","Greeting Card", 2,{"color":"#226644","page":"Stuff","taxable":True}),      
+    ("Reg. Slingshot","Reg. Slingshot", 6.00,{"color":"#3333ff","page":"Stuff"}),
+   ("Ticket CC charge","Ticket CC charge", 1,{"color":"#663300","page":"Stuff","taxable":False}),            
+   ("Book2Prisoner","Book2Prisoner", 2,{"color":"#226644","page":"Stuff","taxable":False}),
+   ("RE Tote bag for Collective","Tote 4 Collective", 5.00,{"color":"#226644","page":"Stuff"}),
+   ("5 x Greeting Card","5 x Greeting Card", 8,{"color":"#226644","page":"Stuff","taxable":True}),
+    ("XL Slingshot","XL Slingshot", 11.00,{"color":"#3333ff","page":"Stuff"}),
+    ("STEW$10","STEW$10", 10.00,{"color":"#ff0000","page":"Stuff","taxable":False}),
+
+# Shirts
+   ("Tshirt: Red Emma's","Red Emma's", 15.00,{"color":"#ff0000","page":"Shirts"}),
+   ("Tshirt: Free School","BFS", 15.00,{"color":"#ff0000","page":"Shirts"}),    
+   ("Free School for organizers","BFS4organizers", 10.00,{"color":"#ff0000","page":"Shirts"}),
+)
+
+# The complex item buttons
+# Full Name, Short Label, ClassFactory, {Color, Taxable,Page}
+complex_items= (
+    ("periodical","periodical","edition_button",{"color":"#3333ff","taxable":True}),
+    ("Button","Button","merchandise_button",{"color":"#3333ff","taxable":True}), 
+    ("Patch","Patch","merchandise_button",{"color":"#3333ff","taxable":True}),
+    ("Zine","Zine","merchandise_button",{"color":"#3333ff","taxable":True}),
+    ("Other","Other","merchandise_button",{"color":"#3333ff","taxable":True}),
+#    ("Tshirt","tshirt","edition_button",{"color":"#3333ff","taxable":True}),
+#    ("IVetDonat","IVetDonat","merchandise_button",{"color":"#3333ff","taxable":False}),
+    ("Donation","Donation","merchandise_button",{"color":"#3333ff","taxable":False}),
+    ("Book","book","inventoried_merchandise_button",{"color":"#3333ff","taxable":True}),
+    ("DVD","dvd","easyselect_button",{"color":"#3333ff","taxable":False}),
+    ("United order (UNFI)","United","merchandise_button",{"color":"#3333ff","taxable":False}),
+)
+
+#The miscellaneous function buttons 
+#Name,FactoryModule,FactoryClass,{Color,Page,Type}
+#factory module = factories/something.py
+#factory class = a class in factories/something.py
+
+misc_functions = (
+    ("Add book to inventory","inventory","add",{"color":"#3333ff","page":"inventory","type":"book"} ),
+    ("Browse inventory","inventory","browse",{"color":"#3333ff","page":"inventory","type":"book"} ),
+
+    ("Pay out cash","cash","giveout",{"color":"#3333ff","page":"accounting","type":"book"} ),
+
+
+    
+    )
+
+# these are the possible status of a book
+bookStatus = ("STOCK", "STOLEN","LOST","SOLD") 
+
+
+
+
+multiple_prices = (("wholesale",.6),)
+
+default_owner="redemmas"
+
+
+# This is the interface configuration.
+# It is simply a two dimensionnal array of tuple,
+# the tuple being the name of the procedure to call
+# to draw the sizer (see the lasts procedures in
+# wxFrame1.py, the make_ ,,, _sizer being put 
+# afterward), the proportion argument, and if
+# wxGROW is set to true. After each columns of the
+# GUI, there's once again the proportion and wxGROW
+# flags defined for the row. 
+#
+#
+# Check out wxFrame1.py => build_GUI for more info
+
+sizer_list = (
+    (
+            ("saved_sale",0 ,0),
+            ("sale", 1, 1),0,1
+    ),
+    (
+            ("simple_items_notebook",1,1),
+            ("complex_items_notebook",1,1),
+            ("misc_functions_notebook",1,1),1,1
+    ),
+    (
+            ("messager",0,1)
+    )
+ )
+
+
+reports=["SalesReport","BestSellersReport","BestSellersReportByDate","BestSellersReportByPublisher","BestSellersReportWithDistributors","SalesReportByOwner"]

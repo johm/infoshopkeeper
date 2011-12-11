@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>$pagetitle</title></head>
+<script src="/javascript/sorttable.js"></script>
+<script src="/javascript/functions.js"></script>
+
+
+  <!-- calendar stylesheet -->
+  <link rel="stylesheet" type="text/css" media="all" href="/style/calendar-win2k-cold-1.css" title="win2k-cold-1" />
+
+  <!-- main calendar program -->
+  <script type="text/javascript" src="/javascript/calendar.js"></script>
+
+  <!-- language for the calendar -->
+  <script type="text/javascript" src="/javascript/calendar-en.js"></script>
+
+  <!-- the following script defines the Calendar.setup helper function, which makes
+       adding a calendar a matter of 1 or 2 lines of code. -->
+  <script type="text/javascript" src="/javascript/calendar-setup.js"></script>
+
+<link href="/style/main.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<ul class="toolbar">
+<li><a href="/search">Search the inventory</a></li>
+<li><a href="/kindlist">Manage "Kinds" of items</a></li>
+<li><a href="/reports">Get reports</a></li>
+<li><a href="/transactions">Review Transactions</a></li>
+</ul>
+#if $lastsearch
+<a href="$lastsearch">Return to search results...</a>
+#end if
+<div class="main">
+$body
+</div>
+</body>
+</html>

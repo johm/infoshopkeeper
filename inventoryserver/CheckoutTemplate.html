@@ -1,0 +1,33 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Checkout
+#end def
+
+#def body
+<h1>Your cart contains:</h1>
+<form action="/checkout">
+<table>
+#for $q in $quantities
+<tr><td><b>${q[1]}</b></td><td><b>${q[0].title.booktitle}</b></td></tr>
+#end for
+</table>
+<br />
+<input class="submit-inline" type="submit" name="change" value="change quantities"/><br />
+Change status from: <input label="from" type="text" name="status_from" value="$status_from">
+To: <input  label="to" type="text" name="status_to" value="$status_to">
+<input class="submit-inline" type="submit" name="restatus" value="change status" />
+<br /><br/>
+Price Schedule: 
+<select name="schedule">
+#for $schedule in $schedules
+<option>${schedule[0]}</option>
+#end for
+</select>
+Seller: <input  type="text" name="cashier" value="" />
+<input class="submit-inline" type="submit" name="finalize" value="make sale" />
+<br/><br />
+<input class="submit-inline" type="submit" name="delete" onclick="return confirm('Are you sure?');"  value="delete collected copies" />
+</form>
+#end def

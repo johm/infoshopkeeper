@@ -1,0 +1,20 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Report: ${report.metadata['name']}
+#end def
+
+#def body
+<h1>${report.metadata['name']}</h1>
+${report.queryForm()}
+<hr />
+#if $do_query
+<table>
+#for $r in $results
+$r
+#end for  
+</table>
+<b>Total: $total</b>
+#end if
+#end def

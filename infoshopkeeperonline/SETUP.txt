@@ -1,0 +1,11 @@
+1) make sure you have python2.4-dev package installed
+
+2) as root, run python2.4 tgsetup.py, which *should* install turbogears for you
+
+3) copy dev.cfg-customizeme to dev.cfg and do what it says!
+
+4) copy infoshopkeeperonline/templates-dist to infoshopkeeperonline/templates - and then customize the templates to your heart's content. 
+
+
+
+

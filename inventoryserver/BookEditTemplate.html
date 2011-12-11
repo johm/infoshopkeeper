@@ -1,0 +1,13 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Editing a copy of ${book.title.booktitle}
+#end def
+
+#def body
+<h1>$book.title.booktitle</h1>
+<form method="get" action="/bookedit">
+$book.object_to_form
+</form>
+#end def

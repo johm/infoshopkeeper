@@ -1,0 +1,16 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Kinds
+#end def
+
+#def body
+<h1>Kinds</h1>
+<ul>
+#for $k in $kinds
+<li><a href="/kindedit?id=$k.id">$k.kindName</></li>
+#end for
+</ul>
+<a href="/kindedit">Add a new kind of item</a>
+#end def

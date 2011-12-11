@@ -1,0 +1,16 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Choose a report to run:
+#end def
+
+#def body
+<h1>Reports</h1>
+<ul>
+#for $r in $reports
+<li><a href="/report?reportname=${r['action']}">${r['name']}</a></li>
+#end for
+</ul>
+
+#end def

@@ -1,0 +1,21 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Your current cart:
+#end def
+
+#def body
+<h1>Your cart currently contains:</h1>
+<a class="close" href="javascript:window.close()">X</a>
+<form action="/addtocart">
+<table>
+#for $q in $quantities
+<tr><td><input type="text" width="3" name="select_x_like_${q[0].id}" value="${q[1]}" /></td><td>${q[0].title.booktitle}</td></tr>
+#end for
+</table>
+<input type="hidden" name="reset_quantities" value="true" />
+<input class="submit-inline" type="submit" name="update" value="update quantities"/>
+<input class="submit-inline" type="submit" name="checkout" value="checkout" />
+</form>
+#end def

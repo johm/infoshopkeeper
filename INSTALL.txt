@@ -1,0 +1,104 @@
+
+Basic idea of what you need to do to install the app:
+
+1) create mysql database.
+2) use the "schema.sql" file to create the tables in the db.
+3) go get a id token from amazon.com web services.
+4) cp etc_default.py etc.py
+5) edit etc.py to match the db and amazon info
+6) make sure you have python2.3 installed and python support for mysql
+   (dbi api) and wxwindows 2.6.  on debian and ubuntu these are packages 	 
+   python2.3-mysqldb and python-libwxgtk2.6
+
+launch the app with ./infoshopkeeper
+
+
+Here are some more detailed instructions, tested on 4/24 on Ubuntu 5.10:
+
+
+as normal user:
+---------------
+
+#get the code from cvs
+
+cvs -d :pserver:anonymous@cvs.codecoop.org:/cvsroot/infoshopkeeper login
+cvs -d :pserver:anonymous@cvs.codecoop.org:/cvsroot/infoshopkeeper checkout infoshopkeeper
+
+
+as root:
+--------
+
+#you could use postgres or sqllite, but i've only tested mysql
+
+apt-get install mysql-server mysql-client
+
+#create a database
+
+mysql
+
+mysql> create database infoshopkeeper;
+
+mysql> grant all on infoshopkeeper.* to 'infoshopkeeper'@localhost identified by 
+'infoshopkeeper';
+
+#make sure you have the universe repositories enabled!
+
+apt-get install python-wxgtk2.6
+
+#a lot of the python stuff is easy to install if you use the cheese shop 
+
+wget http://peak.telecommunity.com/dist/ez_setup.py
+
+python2.4 ez_setup.py
+
+easy_install -U SQLObject
+
+easy_install -U Cheetah -or- apt-get install python2.4-cheetah 
+
+easy_install -U CherryPy
+
+back to normal user:
+--------------------
+
+cd infoshopkeeper;
+
+# you'll need a schema in your db
+
+mysql -u infoshopkeeper -p infoshopkeeper < schema.sql
+
+# cherrypy.conf configures how the web backend works
+
+# change the ip, port, the file system path
+
+cp cherrypy.conf-dist cherrypy.conf 
+ 
+nano cherrypy.conf 
+
+# etc.py is the config file
+
+cp etc_default.py etc.py
+
+nano etc.py
+
+# plug in your db values, location of cherrypy.conf file, and tweak config here
+
+# you'll need to get a license key from amazon web services, see the url in etc.py
+
+
+# done! you can launch the gui with:
+
+./infoshopkeeper
+
+# and the back end web server with:
+
+./server
+
+
+
+
+
+
+
+
+
+

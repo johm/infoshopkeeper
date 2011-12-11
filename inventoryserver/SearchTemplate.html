@@ -1,0 +1,128 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Search the inventory
+#end def
+
+#def body
+<h1>Inventory</h1>
+<div class="showhide"><a  href="javascript:show_hide('search_form')">Show/hide search form</a></div>
+<br />
+<form id="search_form" method="get" action="/search"
+#if not($empty)
+style="visibility:hidden;display:none"
+#end if
+>
+
+<label class="textbox" for="title">Title</label> 
+<input class="textbox" type="text" id="title" name="title" value="$title" /><br />
+
+<label class="textbox" for="author">Author</label> 
+<input class="textbox" type="text" name="author" id="author" value="$author" /><br />
+
+<label class="textbox" for="author">Category</label> 
+<input class="textbox" type="text" name="category" id="category" value="$category" /><br />
+
+<label class="textbox" for="publisher">Publisher</label> 
+<input class="textbox" type="text" name="publisher" id="publisher" value="$publisher" /><br />
+
+<label class="textbox" for="distributor">Distributor</label> 
+<input class="textbox" type="text" name="distributor" id="distributor" value="$distributor" /><br />
+
+<label class="textbox" for="owner">Owner</label> 
+<input class="textbox" type="text" name="owner" id="owner" value="$owner" /><br />
+
+
+<label class="textbox" for="out_of_stock">Only return out of stock books?</label>
+
+<fieldset id="out_of_stock">
+no <input type="radio" name="out_of_stock" id="out_of_stock_no" value="no" 
+#if $out_of_stock == 'no'
+checked
+#end if
+> 
+yes<input type="radio" name="out_of_stock" id="out_of_stock_yes" value="yes"
+#if $out_of_stock == 'yes'
+checked
+#end if
+>
+</fieldset>
+
+<br />
+
+
+<label class="textbox" for="stock_less_than">This many or less in stock</label> 
+<input class="textbox" type="text" name="stock_less_than" id="stock_less_than" value="$stock_less_than" /><br />
+
+<label class="textbox" for="stock_more_than">This many or more in stock</label> 
+<input class="textbox" type="text" name="stock_more_than" id="stock_more_than" value="$stock_more_than" /><br />
+
+<label class="textbox" for="sold_more_than">This many or more sold</label> 
+<input class="textbox" type="text" name="sold_more_than" id="sold_more_than"  value="$sold_more_than" /><br />
+
+<label class="textbox" for="sold_more_than">This many or less sold</label> 
+<input class="textbox" type="text" name="sold_less_than" id="sold_less_than"  value="$sold_less_than" /><br />
+
+<label class="textbox" for="tag">Tag</label> 
+<input class="textbox" type="text" id="tag" name="tag" value="$tag" /><br />
+
+<label class="textbox" for="kind">Kind</label> 
+
+<select class="textbox" id="kind" name="kind">
+#for $k in $kinds
+<option value='$k.id' 
+#if "%s" %($k.id)==$kind  
+selected="true" 
+#end if 
+>$k.kindName</option>
+#end for
+</select><br />
+
+
+
+<input class="submit" type="submit">
+
+<br />
+</form>
+<form action="/titlelist" method="get" >
+<table class="sortable" id="unique_id" >
+<tbody>
+  <tr>
+    <th>Mark</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Category</th>
+    <th>Copies in Stock</th>
+    <th>Copies Sold</th>
+    <th>Distributor</th>
+    <th>Publisher</th>
+    <th>First Inventoried</th>
+    <th>Latest Inventoried</th>
+    <th>First Sold</th>
+    <th>Last Sold</th>
+  </tr>
+#for $t in $titles
+  <tr>
+    <td><input type="checkbox" name="titles" value="$t.id" /></td>
+    <td><a  href="/titleedit?id=$t.id">$t.safe('booktitle')</a></td>
+    <td>$t.authors_as_string</td>
+    <td>$t.categories_as_string</td>
+    <td>${t.copies_in_status("STOCK")}</td>
+    <td>${t.copies_in_status("SOLD")}</td>
+    <td>${t.distributors_as_string()}</td>
+    <td>${t.safe('publisher')}</td>
+    <td>${t.first_book_inventoried.inventoried_when}</td>
+    <td>${t.last_book_inventoried.inventoried_when}</td>
+    <td>${t.first_book_sold.sold_when}</td>
+    <td>${t.last_book_sold.sold_when}</td>
+  </tr>
+#end for
+</tbody>
+</table>
+<br />
+<input class="submit"  name="list" type="submit" value="get marked titles" /><br /><br />
+<input class="submit"  name="delete" onclick="return confirm('Are you sure?');" type="submit" value="delete marked titles" />
+</form>
+
+#end def

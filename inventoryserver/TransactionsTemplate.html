@@ -1,0 +1,46 @@
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def pagetitle
+Transactions
+#end def
+
+#def body
+<h1>Transactions</h1>
+<form action="/transactions" method="post">
+<label class='textbox' for='what'>What</label> <input type='text' class='textbox' name='what' id='what' value='${what}'/> 
+<label class='textbox' for='action'>Action</label> <input type='text' class='textbox' name='action' id='action' value='${action}'/> 
+<label class='textbox' for='begin_date'>Begin Date</label><input type='text' class='textbox' name='begin_date' id='begin_date' value='${begin_date}'/>
+<label class='textbox' for='end_date'>End Date</label><input type='text' class='textbox' name='end_date' id='end_date' value='${end_date}'/>
+<input class="submit" type="submit">
+<script type='text/javascript'>
+        Calendar.setup({
+        inputField     :    'begin_date',   // id of the input field
+        ifFormat       :    '%Y-%m-%d',       // format of the input field
+        showsTime      :    false,
+    });
+    Calendar.setup({
+        inputField     :    'end_date',   // id of the input field
+        ifFormat       :    '%Y-%m-%d',       // format of the input field
+        showsTime      :    false,
+    });
+        </script>
+
+<table class="sortable" id="unique_id" >
+<tbody>
+<tr><th>date</th><th>action</th><th>info</th><th>amount</th><th>delete</th></tr>
+#for $t in $transactions
+<tr>
+<td>${t.date}</td>
+<td>${t.action}</td>
+<td>${t.get_info()}</td>
+<td>${t.amount}</td>
+<td><input type="image" name="deleteid" value="$t.id" src="delete.png"/></td>
+</tr>
+#end for
+</tbody>
+</table>
+</form>
+<br />
+
+#end def

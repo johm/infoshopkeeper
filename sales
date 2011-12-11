@@ -1,0 +1,9 @@
+#!/bin/sh
+
+figlet "Sales for:"
+figlet `date +'%a %b %d'`
+figlet `date +'%D'`
+
+/home/infoshopkeeper/infoshopkeeper/report.py `date +'%Y-%m-%d'`
+
+#read
