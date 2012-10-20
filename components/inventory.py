@@ -37,7 +37,8 @@ class inventory:
                 categories = [x.categoryName.decode("unicode_escape") for x in the_titles[0].categorys]
                 categories_as_string = string.join(categories,',')
                 if len(the_titles[0].books) > 0:
-                    ListPrice = the_titles[0].books[0].listprice
+#                    ListPrice = the_titles[0].books[0].listprice
+                    ListPrice = max([b.listprice for b in the_titles[0].books])
                 else:
                     ListPrice = 0
                 Manufacturer = the_titles[0].publisher.decode("unicode_escape")
